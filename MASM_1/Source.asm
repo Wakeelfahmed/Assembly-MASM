@@ -1,49 +1,29 @@
-;#include Irvine32.inc
-; Hello World program using the win32 API
-.386
-.MODEL flat, stdcall
-; Define output handle  -> predefined constant see (https://docs.microsoft.com/de-de/windows/console/getstdhandle)
- STD_OUTPUT_HANDLE EQU -11 
- ; Define structure of called functions
- ; Function to get the handle for the standard device (console)
- GetStdHandle PROTO, nStdHandle: DWORD 
- ; handle: Handle for console screen buffer
- ; lpBuffer: Pointer to the buffer containing the chars to write
- ; nNumberOfBytesToWrite: The number of characters to be written
- ; lpReserved: Reserved, must be NULL.
- WriteConsoleA PROTO, handle: DWORD, lpBuffer:PTR BYTE, nNumberOfBytesToWrite:DWORD, lpNumberOfBytesWritten:PTR DWORD, lpReserved:DWORD
- ; dwExitCode: The exit code for the process and all threads -> see (https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)
- ExitProcess PROTO, dwExitCode: DWORD 
+;TITLE Add and Subtract          (AddSub.asm)
 
- .data	; Define used variables and constants
- ; Handle to the standard output device (console screen buffer)
- consoleOutHandle DWORD ? 
- ; Number of written Bytes
- bytesWritten DWORD ?
- ; The message to print
- message BYTE "Hello World from MASM!", 0Ah ;0Ah means new line, equal to \n in Java/C
- ; Number of chars to write -> length of message
- lmessage DWORD 23
+; This program adds and subtracts 32-bit integers.
 
- .code		; Define the code to execute
- main PROC	; Define main function
- ; Get the standard handle
-  INVOKE GetStdHandle, STD_OUTPUT_HANDLE
-  ; Set eax as the output handle
-  mov consoleOutHandle, eax 
-  ; Move message with offset to data register
-  mov edx, offset message 
-  ; Push the content of all General Purpose Registers to the stack
-  pushad    
-  ; Move the message length to eax
-  mov eax, lmessage
-  ; Invoke writing to console screen
-  INVOKE WriteConsoleA, consoleOutHandle, edx, eax, offset bytesWritten, 0
-  ; Pop all double words (dwords) from the stack into the General Purpose Registers
-  popad
-  ; Exit the WriteConsoleA function
-  INVOKE ExitProcess,0 
-; Finsih the main function
- main ENDP
-; Finish the program
+INCLUDE C:\Irvine\Irvine32.inc
+
+.data
+    num BYTE 126d
+    num2 SBYTE -26d
+    num3 WORD   692Ah
+    num4 SWORD -32789
+    num5 DWORD 12345678h
+    num6 SDWORD -2147483648
+
+.code
+main PROC
+
+    mov al, num
+    call DumpRegs
+
+    mov ah, num2
+    mov cx, num3
+    mov dx, num4
+    mov eax, num5
+    mov ebx, num6
+
+    exit
+main ENDP
 END main
