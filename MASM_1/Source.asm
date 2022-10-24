@@ -1,3 +1,4 @@
+;#include Irvine32.inc
 ; Hello World program using the win32 API
 .386
 .MODEL flat, stdcall
@@ -14,8 +15,7 @@
  ; dwExitCode: The exit code for the process and all threads -> see (https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)
  ExitProcess PROTO, dwExitCode: DWORD 
 
- ; Define used variables and constants
- .data
+ .data	; Define used variables and constants
  ; Handle to the standard output device (console screen buffer)
  consoleOutHandle DWORD ? 
  ; Number of written Bytes
@@ -25,10 +25,8 @@
  ; Number of chars to write -> length of message
  lmessage DWORD 23
 
- ; Define the code to execute
- .code
- ; Define main function
- main PROC
+ .code		; Define the code to execute
+ main PROC	; Define main function
  ; Get the standard handle
   INVOKE GetStdHandle, STD_OUTPUT_HANDLE
   ; Set eax as the output handle
