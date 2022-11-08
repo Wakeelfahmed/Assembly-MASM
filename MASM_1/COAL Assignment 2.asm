@@ -25,7 +25,7 @@ call crlf
 call crlf
 call crlf
 
-mov ecx, edx	;loop to be exexuted 
+mov ecx, edx	;loop to be exexuted
 mov esi, 0
 l2 :
 mov eax, array_Unsigned[esi]

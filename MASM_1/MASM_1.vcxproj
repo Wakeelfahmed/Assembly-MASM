@@ -117,7 +117,11 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>irvine32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <MASM>
+      <IncludePaths>C:\Irvine;%(IncludePaths)</IncludePaths>
+    </MASM>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
