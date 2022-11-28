@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="COAL Assignment 2.asm">
+    <MASM Include="MIDQ1MASM.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
