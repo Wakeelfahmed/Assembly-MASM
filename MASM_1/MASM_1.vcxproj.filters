@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Theory mid Unsigned.asm">
+    <MASM Include="..\Journal 7\Q4 Flags.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
