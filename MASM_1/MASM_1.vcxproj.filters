@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="..\Journal 7\Q4 Flags.asm">
+    <MASM Include="..\COAL TEST FOR A3.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
