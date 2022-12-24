@@ -14,8 +14,9 @@ main PROC
 	
 	mov esi, offset USER_STR ;passing offset of storage
 	call String_Input
-	ret
+	;ret
 main endp
+exit
 
 String_Input PROC
 	mov ebx, 0
@@ -53,5 +54,4 @@ String_Input PROC
 	call writestring
 	ret 
 String_Input endp
-exit
 end main

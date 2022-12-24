@@ -1,7 +1,7 @@
 Include Irvine32.inc
 .data
-enter1 byte "Enter a String = ",0
-enter2 byte "Smaller Alphabets = ",0
+enter1 byte "Enter a String: ",0
+enter2 byte "Smaller Alphabets: ",0
 org_string BYTE 21 DUP(0)
 new_string BYTE 21 DUP(0)
 byteCount DWORD ?
