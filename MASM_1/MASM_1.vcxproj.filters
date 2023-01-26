@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="NEW passing array to Procedure.asm">
+    <MASM Include="Practice\32 Bit MUL SHIFT.ASM">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

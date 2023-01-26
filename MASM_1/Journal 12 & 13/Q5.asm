@@ -13,22 +13,24 @@ main PROC
 		JB skip
 		cmp al, 'Z'
 		JA skip
-		JMP TO_UPPERCASE
+		JMP TO_LowerCase	;TO_LowerCase
 		skip:
 
 		cmp al, 'a'
 		JB skip1
 		cmp al, 'z'
 		JA skip1
-		JMP TO_LowerCase
+		JMP TO_UPPERCASE	;TO_UPPERCASE
 		skip1:
 		JMP Continue	;skip spaces or other chars
 			
 			TO_LowerCase:
-			and byte ptr String_ToggleCase[ebx], 11011111b 
+			or byte ptr String_ToggleCase[ebx], 00100000b 
+			;and byte ptr String_ToggleCase[ebx], 11011111b 
 			JMP Continue
 			TO_UPPERCASE:
-			or byte ptr String_ToggleCase[ebx], 00100000b 
+			and byte ptr String_ToggleCase[ebx], 11011111b 
+			;or byte ptr String_ToggleCase[ebx], 00100000b 
 			JMP Continue
 		Continue:
 		inc ebx
